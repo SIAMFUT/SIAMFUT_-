@@ -62,7 +62,7 @@ const correctPassword = "kitswaps123";
 function promptPassword() {
 const input = prompt("Enter password for Kitswaps PSD’s:");
 if (input === correctPassword) {
-document.getElementById("kitswapsGallery").style.display = "flex";
+document.getElementById("kitswapsGallery").style.display = "grid";
 loadGallery();
  } else {
 alert("Wrong password.");
