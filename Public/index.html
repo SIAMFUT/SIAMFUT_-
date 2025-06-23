@@ -91,7 +91,7 @@
   <div class="landing active" id="landing">
     <h1>Welcome to SIAMFUT's Portfolio</h1>
     <a href="graphics.html" class="btn">Press here to enter the Portfolio</a>
-    <button class="btn" style="margin-top: 20px;" onclick="showLogin()">Admin Upload Panel</button>
+    <a href="psds.html" class="psd-button">My PSDs</a>
   </div>
 
   <div class="portfolio" id="portfolio">
@@ -101,26 +101,8 @@
     </div>
   </div>
 
-  <div class="login" id="login">
-    <h1>Enter Admin Password</h1>
-    <form onsubmit="return checkPassword(event)">
-      <input type="password" id="adminPass" placeholder="Password" required>
-      <input type="submit" value="Enter Upload Panel">
-    </form>
-  </div>
-  <div class="admin" id="admin">
-    <h1>Upload New Graphic</h1>
-    <form onsubmit="return uploadFile(event)">
-      <input type="file" id="fileInput" accept=".jpg,.png,.psd" required>
-      <input type="submit" value="Upload">
-
-
-    </form>
- <a href="index.html" class="btn">← Back to Home</a>
-  </div>
-
+  
   <script>
-    const PASSWORD = "siamfut123";
 
     function switchSection(sectionId) {
       document.querySelectorAll('.landing, .portfolio, .admin, .login').forEach(div => div.classList.remove('active'));
@@ -132,45 +114,7 @@
       loadGallery();
     }
 
-    function showLogin() {
-      switchSection('login');
-    }
-
-    function checkPassword(event) {
-      event.preventDefault();
-      const inputPass = document.getElementById('adminPass').value;
-      if (inputPass === PASSWORD) {
-        switchSection('admin');
-      } else {
-        alert("Incorrect password.");
-      }
-    }
-
-    async function uploadFile(event) {
-      event.preventDefault();
-      const fileInput = document.getElementById('fileInput');
-      const file = fileInput.files[0];
-      if (!file) return alert('No file selected.');
-
-      const formData = new FormData();
-      formData.append('file', file);
-
-      const res = await fetch('/upload', {
-        method: 'POST',
-        headers: { 'x-admin-password': PASSWORD },
-        body: formData
-      });
-
-      const result = await res.json();
-      if (res.ok) {
-        alert('Upload successful!');
-        fileInput.value = '';
-      } else {
-        alert('Upload failed: ' + result.error);
-      }
-    }
-
-    async function loadGallery() {
+      async function loadGallery() {
       const res = await fetch('/gallery');
       const files = await res.json();
       const container = document.getElementById('gallery');
