@@ -54,9 +54,7 @@ font-weight: bold;
 
 <h1>PSD’s</h1>
 <button class="folder-btn" onclick="promptPassword()">Kitswaps PSD’s</button>
-
-<div class="gallery" id="kitswapsGallery">
-<!-- Images + Download buttons will be inserted here by JS -->
+<div id="kitswapsGallery" class="gallery" style="display: none;">
 </div>
 
 <script>
@@ -66,9 +64,9 @@ const input = prompt("Enter password for Kitswaps PSD’s:");
 if (input === correctPassword) {
 document.getElementById("kitswapsGallery").style.display = "flex";
 loadGallery();
-} else {
+ } else {
 alert("Wrong password.");
-}
+ }
 }
 
 function loadGallery() {
