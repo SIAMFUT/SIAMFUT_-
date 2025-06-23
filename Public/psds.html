@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>PSD’s</title>
+<style>
+body {
+background: #111;
+color: white;
+font-family: sans-serif;
+text-align: center;
+}
+h1 {
+margin-top: 40px;
+font-size: 3em;
+}
+.folder-btn {
+margin-top: 50px;
+padding: 20px 40px;
+background: yellow;
+color: black;
+border: none;
+font-size: 1.2em;
+cursor: pointer;
+border-radius: 5px;
+}
+.gallery {
+display: none;
+flex-wrap: wrap;
+justify-content: center;
+gap: 30px;
+margin-top: 50px;
+}
+.item {
+width: 200px;
+}
+.item img {
+width: 100%;
+border-radius: 10px;
+}
+.item button {
+margin-top: 10px;
+padding: 10px;
+width: 100%;
+border: none;
+background: white;
+color: black;
+cursor: pointer;
+font-weight: bold;
+}
+</style>
+</head>
+<body>
+
+<h1>PSD’s</h1>
+<button class="folder-btn" onclick="promptPassword()">Kitswaps PSD’s</button>
+
+<div class="gallery" id="kitswapsGallery">
+<!-- Images + Download buttons will be inserted here by JS -->
+</div>
+
+<script>
+const correctPassword = "kitswaps123";
+function promptPassword() {
+const input = prompt("Enter password for Kitswaps PSD’s:");
+if (input === correctPassword) {
+document.getElementById("kitswapsGallery").style.display = "flex";
+loadGallery();
+} else {
+alert("Wrong password.");
+}
+}
+
+function loadGallery() {
+const gallery = document.getElementById("kitswapsGallery");
+const filenames = ["Nico-Barca-Graphic-Final"];
+
+filenames.forEach(name => {
+const div = document.createElement("div");
+div.className = "item";
+div.innerHTML = 
+  <img src="/kitswaps/${name}.jpg" alt="${name}">
+  <a href="https://drive.google.com/uc?export=download&id=1zaggBR5tt5VZvTVXQvpogrtDWnRR49qw" target="_blank">
+    <button>Open PSD Download Page</button>
+  </a>
+;
+gallery.appendChild(div);
+});
+}
+</script>
+
+</body>
+</html>
