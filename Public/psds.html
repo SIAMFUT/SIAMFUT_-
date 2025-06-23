@@ -78,9 +78,7 @@ const div = document.createElement("div");
 div.className = "item";
 div.innerHTML = 
   <img src="/kitswaps/${name}.jpg" alt="${name}">
-  <a href="https://drive.google.com/uc?export=download&id=1zaggBR5tt5VZvTVXQvpogrtDWnRR49qw" target="_blank">
-    <button>Open PSD Download Page</button>
-  </a>
+  <button onclick="window.location.href='https://drive.google.com/file/d/1zaggBR5tt5VZvTVXQvpogrtDWnRR49qw/view?usp=drive_link'">Download PSD</button>
 ;
 gallery.appendChild(div);
 });
