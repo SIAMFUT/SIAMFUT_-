@@ -1,8 +1,10 @@
 const express = require('express');
-const app = express();
 const path = require('path');
 const fs = require('fs');
 
+const __dirname = path.resolve();
+
+const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Serve static files from Public
