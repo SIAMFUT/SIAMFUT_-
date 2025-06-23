@@ -53,7 +53,7 @@
         const gallery = document.getElementById('gallery');
         images.forEach(image => {
           const img = document.createElement('img');
-          img.src = 'images/' + image;
+          img.src = image;
           img.alt = image;
           gallery.appendChild(img);
         });
