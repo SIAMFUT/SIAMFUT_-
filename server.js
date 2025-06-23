@@ -18,7 +18,7 @@ app.get('/api/images', (req, res) => {
     if (err) {
       return res.status(500).json({ error: 'Failed to load images' });
     }
-    const imagePaths = files.map(file => /Uploads/${file});
+const imagePaths = files.map(file => `/Uploads/${file}`);
     res.json(imagePaths);
   });
 });
