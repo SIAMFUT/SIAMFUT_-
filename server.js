@@ -6,6 +6,7 @@ const app = express();
 const port = 3000;
 
 app.use(express.static('Public'));
+app.use('/images', express.static(path.join(__dirname, 'Public/images')));
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
