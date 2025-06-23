@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <title>My Graphics</title>
-  <style>
+  <!-- Lightbox2 CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet">
+<style>
     body {
       background: #000000;
       color: white;
@@ -52,15 +54,25 @@
       .then(images => {
         const gallery = document.getElementById('gallery');
         images.forEach(image => {
+        const link = document.createElement('a');
+        link.href = `/images/${image}`;
+        link.setAttribute('data-lightbox', 'graphics');
+        link.setAttribute('data-title', image);  
+
           const img = document.createElement('img');
           img.src = `/images/${image}`;
           img.alt = image;
-          gallery.appendChild(img);
+
+          link.appendChild(img);
+          gallery.appendChild(link);
         });
       })
       .catch(err => {
         console.error('Failed to load images', err);
       });
   </script>
+
+<!-- Lightbox2 JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
 </body>
 </html>
