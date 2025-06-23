@@ -56,34 +56,33 @@ font-weight: bold;
 <button class="folder-btn" onclick="promptPassword()">Kitswaps PSD’s</button>
 <div id="kitswapsGallery" class="gallery" style="display: none;">
 </div>
-
 <script>
-const correctPassword = "kitswaps123";
-function promptPassword() {
-const input = prompt("Enter password for Kitswaps PSD’s:");
-if (input === correctPassword) {
-document.getElementById("kitswapsGallery").style.display = "grid";
-loadGallery();
- } else {
-alert("Wrong password.");
- }
-}
+  const correctPassword = "kitswaps123";
 
-function loadGallery() {
-const gallery = document.getElementById("kitswapsGallery");
-const filenames = ["Nico-Barca-Graphic-Final"];
+  function promptPassword() {
+    const input = prompt("Enter password for Kitswaps PSD’s:");
+    if (input === correctPassword) {
+      document.getElementById("kitswapsGallery").style.display = "flex";
+      loadGallery();
+    } else {
+      alert("Wrong password.");
+    }
+  }
 
-filenames.forEach(name => {
-const div = document.createElement("div");
-div.className = "item";
-div.innerHTML = 
-  <img src="/kitswaps/${name}.jpg" alt="${name}">
-  <button onclick="window.location.href='https://drive.google.com/file/d/1zaggBR5tt5VZvTVXQvpogrtDWnRR49qw/view?usp=drive_link'">Download PSD</button>
-;
-gallery.appendChild(div);
-});
-}
+  function loadGallery() {
+    const gallery = document.getElementById("kitswapsGallery");
+    const filenames = ["Nico-Barca-Graphic-Final"];
+
+    filenames.forEach(name => {
+      const div = document.createElement("div");
+      div.className = "item";
+      div.innerHTML = 
+        <img src="/kitswaps/${name}.jpg" alt="${name}" />
+        <button onclick="window.location.href='https://drive.google.com/file/d/1zaggBR5tt5VZvTVXQvpogrtDWnRR49qw/view?usp=drive_link'">Download PSD</button>
+      ;
+      gallery.appendChild(div);
+    });
+  }
 </script>
-
 </body>
 </html>
